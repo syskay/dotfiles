@@ -1,0 +1,3 @@
+#!/bin/bash
+clock=$(date +" wk%V (%a) %d-%m-%Y  %H:%M")
+echo "$clock"

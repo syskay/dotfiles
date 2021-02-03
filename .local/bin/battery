@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for battery in /sys/class/power_supply/BAT?*
+do
+	status=$(cat "$battery/status")
+	capacity=$(cat "$battery/capacity")
+	printf "%s%s%%\n" "$status" "$capacity";
+done
