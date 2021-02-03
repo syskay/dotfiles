@@ -1,6 +1,0 @@
-#+TITLE: README
-#+AUTHOR: syskay
-#+EMAIL: syskay@gmail.com
-* dotfiles
-My collection of dotfiles managed by using bare git repository.
-Setup based on https://www.atlassian.com/git/tutorials/dotfiles
