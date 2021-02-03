@@ -3,4 +3,4 @@
 #+EMAIL: syskay@gmail.com
 
 * Introduction
-My collections of dotfiles managed via bare git repositotory. Setup based on https://www.atlassian.com/git/tutorials/dotfiles.
+My collection of dotfiles managed via bare git repositotory. Setup based on https://www.atlassian.com/git/tutorials/dotfiles.
