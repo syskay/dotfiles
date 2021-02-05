@@ -13,3 +13,6 @@ if [ -d "$HOME/.local/bin" ] ;
 	then PATH="$HOME/.local/bin:$PATH"
 fi 
 alias config='/usr/bin/git --git-dir=/home/syskay/dotfiles/ --work-tree=/home/syskay'
+
+source /home/syskay/.config/broot/launcher/bash/br
+pfetch
