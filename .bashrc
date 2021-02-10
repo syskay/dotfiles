@@ -16,3 +16,12 @@ alias config='/usr/bin/git --git-dir=/home/syskay/dotfiles/ --work-tree=/home/sy
 
 source /home/syskay/.config/broot/launcher/bash/br
 pfetch
+
+#powerline-daemon -q
+#POWERLINE_BASH_CONTINUATION=1
+#POWERLINE_BASH_SELECT=1
+#. /usr/share/powerline/bindings/bash/powerline.sh
+
+force_color_promt=yes
+
+eval "$(starship init bash)"
