@@ -57,6 +57,35 @@
   ;;(use-package nord-theme)
   #+END_SRC
 
+** emacs-dashoard 
+   #+BEGIN_SRC emacs-lisp
+
+   (use-package page-break-lines
+     :ensure t)
+    
+
+;;   (use-package init-open-recentf
+;;     :config
+;;     (recentf-mode 1)
+;;     (setq recentf-max-menu-items 25)
+;;     (init-open-recentf))
+ 
+   (use-package dashboard
+     :ensure t
+     :config
+     (setq dashboard-items '((recents . 7)
+                             (bookmarks . 7)
+                             (registers . 7)))
+     (setq dashboard-set-heading-icons t)
+     (setq dashboard-set-file-icons t)
+     (setq dashboard-startup-banner 'logo)
+     (setq dashboard-center-content t)
+     (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*"))) ;; this is needed to open *dashboar* buffer after startup
+     :init
+     (dashboard-setup-startup-hook))
+
+   #+END_SRC
+
 * Ivy and Counsel
 #+BEGIN_SRC emacs-lisp
 (use-package ivy 
@@ -290,4 +319,9 @@
 
 ;; Make gc pauses faster by decreasing the threshold.
 (setq gc-cons-threshold (* 2 1000 1000))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+(use-package xresources-theme
+  :ensure t)
 #+END_SRC

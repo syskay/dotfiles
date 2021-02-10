@@ -42,6 +42,30 @@
 
 ;;(use-package nord-theme)
 
+(use-package page-break-lines
+     :ensure t)
+    
+
+;;   (use-package init-open-recentf
+;;     :config
+;;     (recentf-mode 1)
+;;     (setq recentf-max-menu-items 25)
+;;     (init-open-recentf))
+ 
+   (use-package dashboard
+     :ensure t
+     :config
+     (setq dashboard-items '((recents . 7)
+                             (bookmarks . 7)
+                             (registers . 7)))
+     (setq dashboard-set-heading-icons t)
+     (setq dashboard-set-file-icons t)
+     (setq dashboard-startup-banner 'logo)
+     (setq dashboard-center-content t)
+     (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*"))) ;; this is needed to open *dashboar* buffer after startup
+     :init
+     (dashboard-setup-startup-hook))
+
 (use-package ivy 
   :diminish
   :bind (("C-s" . swiper)
@@ -224,3 +248,6 @@
 
 ;; Make gc pauses faster by decreasing the threshold.
 (setq gc-cons-threshold (* 2 1000 1000))
+
+(use-package xresources-theme
+  :ensure t)
