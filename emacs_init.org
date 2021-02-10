@@ -44,7 +44,7 @@
     ((or 'gnu/linux 'cygwin)
      (set-face-attribute 'default nil :font "Fira Mono" :height 60))
     ('windows-nt 
-     (set-face-attribute 'default nil :font "Fira Code Retina" :heigth 100)))
+     (set-face-attribute 'default nil :font "Fira Code Retina" :height 100)))
      
   (use-package doom-themes
 	:config
