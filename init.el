@@ -172,11 +172,6 @@
   :config
   (setq elfeed-db-directory "~/elfeed/elfeeddb"))
 
-(use-package flycheck
-  :ensure t
-  :init
-  (global-flycheck-mode))
-
 (use-package dired
   :ensure nil)
 
@@ -189,6 +184,17 @@
 (setq-default evil-shift-with tab-width)
 
 (setq-default indent-tabs-mode nil)
+
+(use-package flycheck
+  :ensure t
+  :init
+  (global-flycheck-mode))
+
+(use-package auto-complete
+  :ensure t
+  :config
+  (setq global-auto-complete-mode t)
+)
 
 (use-package command-log-mode)
 
