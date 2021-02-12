@@ -89,7 +89,7 @@
 ;;    (ivy-rich-mode 1))
     
   (use-package counsel
-    :bind (("C-M-j" . 'counsel-switch-buffer)
+    :bind (("M-b" . 'counsel-switch-buffer)
            :map minibuffer-local-map
            ("C-r" . 'counsel-minibuffer-history))
     :custom
@@ -149,6 +149,17 @@
 (use-package emojify
   :commands emojify-mode)
 
+(defun sy/org-start-presentation ()
+  (interactive)
+  (org-tree-slide-mode 1)
+  (setq text-scale-mode-amount 4)
+  (test-scale 1))
+
+(defun sy/org-end-presentation ()
+  (interactive)
+  (text-scale-mode 0)
+  (org-tree-slide-mode 0))
+
 (use-package org-tree-slide
   :defer t
   :after org
@@ -156,7 +167,9 @@
   :config
   (evil-define-key 'normal org-tree-slide-mode-map
     (kbd "C-j") 'org-tree-slide-move-next-tree
-    (kbd "C-k") 'org-tree-slide-move-previous-tree))
+    (kbd "C-k") 'org-tree-slide-move-previous-tree
+    (kbd "q") 'sy/org-end-presentation)
+  (setq org-tree-slide-header t))
 
 (use-package org-re-reveal)
 
