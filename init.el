@@ -41,6 +41,7 @@
 (doom-themes-visual-bell-config))
 
 ;;(use-package nord-theme)
+(set-frame-parameter (selected-frame) 'alpha '(90 . 90))
 
 (use-package page-break-lines
      :ensure t)
@@ -222,6 +223,19 @@
 (use-package doom-modeline
   :init (doom-modeline-mode 1)
   :custom ((doom-modeline-height 18)))
+
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+
+(use-package general
+  :config
+  (general-create-definer sy/leader-keys
+  :keymaps '(normal insert visual emacs)
+  :prefix "SPC"
+  :global-prefix "C-SPC")
+
+  (sy/leader-keys
+    "t" '(:ignore t :which-key "toggles")
+    "tt" '(counsel-load-theme :which-key "choose theme")))
 
 (use-package evil
   :init
