@@ -85,9 +85,10 @@
   :config
   (ivy-mode 1))
   
-;;  (use-package ivy-rich
-;;    :init
-;;    (ivy-rich-mode 1))
+  (use-package ivy-rich
+    :init
+    (ivy-rich-mode 1)
+    :after counsel)
     
   (use-package counsel
     :bind (("M-b" . 'counsel-switch-buffer)
