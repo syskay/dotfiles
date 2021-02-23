@@ -4,5 +4,25 @@ for battery in /sys/class/power_supply/BAT?*
 do
 	status=$(cat "$battery/status")
 	capacity=$(cat "$battery/capacity")
-	printf "%s%s%%\n" "$status" "$capacity";
+  if [ $capacity -gt 0 ] && [ $capacity -lt 20 ]
+  then
+      icon="🔋"
+  fi
+
+  if [ $capacity -gt 21 ] && [ $capacity -lt 50 ] 
+  then
+      icon="2"
+  fi
+
+  if [ $capacity -gt 51 ] && [ $capacity -lt 75 ]
+  then
+      icon="3"
+  fi
+
+  if [[ $capacity -gt 76 && $capacity -lt 100 ]]
+  then
+      icon="4"
+  fi
+  
+	printf "%s%s%s%%\n" "$status" "$icon" "$capacity";
 done
