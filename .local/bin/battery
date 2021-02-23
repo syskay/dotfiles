@@ -6,23 +6,27 @@ do
 	capacity=$(cat "$battery/capacity")
   if [ $capacity -gt 0 ] && [ $capacity -lt 20 ]
   then
-      icon="🔋"
+      icon=""
   fi
 
   if [ $capacity -gt 21 ] && [ $capacity -lt 50 ] 
   then
-      icon="2"
+      icon=""
   fi
 
   if [ $capacity -gt 51 ] && [ $capacity -lt 75 ]
   then
-      icon="3"
+      icon=""
   fi
 
-  if [[ $capacity -gt 76 && $capacity -lt 100 ]]
+  if [[ $capacity -gt 76 && $capacity -lt 90 ]]
   then
-      icon="4"
+      icon=""
   fi
   
-	printf "%s%s%s%%\n" "$status" "$icon" "$capacity";
+  if [[ $capacity -gt 91 && $capacity -lt 100 ]]
+  then
+      icon=""
+  fi
+	printf "%s %s%%\n" "$icon" "$capacity";
 done
