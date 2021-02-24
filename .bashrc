@@ -14,6 +14,8 @@ if [ -d "$HOME/.local/bin" ] ;
 fi 
 alias config='/usr/bin/git --git-dir=/home/syskay/dotfiles/ --work-tree=/home/syskay'
 
+setxkbmap pl
+
 source /home/syskay/.config/broot/launcher/bash/br
 pfetch
 

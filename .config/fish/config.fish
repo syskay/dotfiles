@@ -1,6 +1,8 @@
 # PATHs
 set -U fish_user_paths $HOME/.local/bin
 
+setxkbmap pl
+
 # Welcome messages
 set fish_greeting  	# Suppresses fish's welcome message
 pfetch
