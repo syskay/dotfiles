@@ -29,4 +29,5 @@ do
       icon=""
   fi
 	printf "%s %s%%\n" "$icon" "$capacity";
+	printf "%s%s%s%%\n" "$status" "$icon" "$capacity";
 done
