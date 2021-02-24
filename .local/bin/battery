@@ -4,17 +4,17 @@ for battery in /sys/class/power_supply/BAT?*
 do
 	status=$(cat "$battery/status")
 	capacity=$(cat "$battery/capacity")
-  if [ $capacity -gt 0 ] && [ $capacity -lt 20 ]
+  if [ $capacity -gt 0 ] && [ $capacity -lt 10 ]
   then
       icon=""
   fi
 
-  if [ $capacity -gt 21 ] && [ $capacity -lt 50 ] 
+  if [ $capacity -gt 11 ] && [ $capacity -lt 40 ] 
   then
       icon=""
   fi
 
-  if [ $capacity -gt 51 ] && [ $capacity -lt 75 ]
+  if [ $capacity -gt 41 ] && [ $capacity -lt 75 ]
   then
       icon=""
   fi
