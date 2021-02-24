@@ -113,7 +113,9 @@
     :after counsel)
     
   (use-package counsel
-    :bind (("M-b" . 'counsel-switch-buffer)
+    :bind (("M-b" . counsel-switch-buffer)
+           ("M-x" . counsel-M-x)
+           ("C-x C-f" . counsel-find-file)
            :map minibuffer-local-map
            ("C-r" . 'counsel-minibuffer-history))
     :custom
@@ -265,7 +267,7 @@
    #+BEGIN_SRC emacs-lisp
    (setq-default indent-tabs-mode nil)
    #+END_SRC
-* Check and completition
+* Checks and completition
 ** Flycheck
    #+BEGIN_SRC emacs-lisp
    (use-package flycheck
@@ -277,9 +279,18 @@
    #+BEGIN_SRC emacs-lisp
    (use-package auto-complete
      :ensure t
-     :config
-     (setq global-auto-complete-mode t)
+     :init
+     (progn
+     (ac-config-default)
+     (global-auto-complete-mode t))
    )
+   #+END_SRC
+   
+   #+BEGIN_SRC emacs-lisp
+   (use-package org-ac
+     :config
+     (org-ac/config-default))
+
    #+END_SRC
 * Others
 

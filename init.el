@@ -91,7 +91,9 @@
     :after counsel)
     
   (use-package counsel
-    :bind (("M-b" . 'counsel-switch-buffer)
+    :bind (("M-b" . counsel-switch-buffer)
+           ("M-x" . counsel-M-x)
+           ("C-x C-f" . counsel-find-file)
            :map minibuffer-local-map
            ("C-r" . 'counsel-minibuffer-history))
     :custom
@@ -207,9 +209,15 @@
 
 (use-package auto-complete
   :ensure t
-  :config
-  (setq global-auto-complete-mode t)
+  :init
+  (progn
+  (ac-config-default)
+  (global-auto-complete-mode t))
 )
+
+(use-package org-ac
+  :config
+  (org-ac/config-default))
 
 (use-package command-log-mode)
 
