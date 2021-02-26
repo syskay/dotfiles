@@ -17,6 +17,10 @@ Plug 'dylanaraps/wal.vim'
 
 Plug 'ap/vim-css-color'
 
+Plug 'arcticicestudio/nord-vim'
+
+Plug 'dracula/vim',{'ac':'dracula'}
+
 call plug#end()
 
 colorscheme wal
