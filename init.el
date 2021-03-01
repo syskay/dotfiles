@@ -148,7 +148,10 @@
   :config
   (setq which-key-idle-delay 0.3))
 
-(use-package unicode-fonts)
+(use-package unicode-fonts
+  :ensure t
+  :config
+  (unicode-fonts-setup))
 
 (use-package emojify
   :commands emojify-mode)

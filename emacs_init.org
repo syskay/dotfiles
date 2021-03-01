@@ -194,7 +194,10 @@
   #+END_SRC
 * Unicode fonts
   #+BEGIN_SRC emacs-lisp
-  (use-package unicode-fonts) 
+  (use-package unicode-fonts
+    :ensure t
+    :config
+    (unicode-fonts-setup)) 
   #+END_SRC
 * Emojis
   #+BEGIN_SRC emacs-lisp
