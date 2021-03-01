@@ -32,10 +32,10 @@ do
   case "$(cat "$battery/status")" in
       "Unknown") status="❓" ;;
       "Charging") status="" ;;
-      "Discharging") stauts="🔋" ;;
-      "Not charging") stauts="🛑" ;;
+      "Discharging") status="🔋" ;;
+      "Not charging") status="🛑" ;;
       "Full") status="♻" ;;
   esac 
   
-	printf "%s%s%s%%\n" "$status " "$icon" "$capacity";
+	printf "%s %s  %s%%\n" "$status" "$icon" "$capacity";
 done
