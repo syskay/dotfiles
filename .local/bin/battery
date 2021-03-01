@@ -28,5 +28,14 @@ do
   then
       icon=""
   fi
-	printf "%s  %s%%\n" "$icon" "$capacity";
+
+  case "$(cat "$battery/status")" in
+      "Unknown") status="❓" ;;
+      "Charging") status="" ;;
+      "Discharging") stauts="🔋" ;;
+      "Not charging") stauts="🛑" ;;
+      "Full") status="♻" ;;
+  esac 
+  
+	printf "%s%s%s%%\n" "$status " "$icon" "$capacity";
 done
