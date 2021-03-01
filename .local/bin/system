@@ -1,0 +1,6 @@
+#!/bin/bash
+
+packages=$(pacman -Q | wc -l)
+packages_update=$(checkupdates | wc -l)
+
+echo " $packages_update/$packages"
