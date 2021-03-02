@@ -1,5 +1,5 @@
 #!/bin/bash
-#weather="$(curl -s wttr.in/?format="%c+%t(%f)+%h+%P+%m")"
-weather="$(curl -s wttr.in/?format="%c+%t(%f)+%h+%P+%m\n")"
+#weather="$(curl -sf wttr.in/?format="%c+%t(%f)+%h+%P+%m")"
+weather="$(curl -sf wttr.in/?format="%c+%t(%f)+%h+%P+%m\n")"
 
 printf "%s \n" "$weather" 
