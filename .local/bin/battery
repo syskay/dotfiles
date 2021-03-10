@@ -39,3 +39,7 @@ do
   
 	printf "%s %s  %s%%\n" "$status" "$icon" "$capacity";
 done
+
+case $BLOCK_BUTTON in
+	3) "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac

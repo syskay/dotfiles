@@ -23,4 +23,4 @@ Plug 'dracula/vim',{'ac':'dracula'}
 
 call plug#end()
 
-colorscheme wal
+colorscheme dracula

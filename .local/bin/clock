@@ -1,3 +1,10 @@
 #!/bin/bash
 clock=$(date +" wk%V (%a) %d-%m-%Y  %H:%M")
 echo "$clock"
+
+case $BLOCK_BUTTON in
+	1) notify-send "clock, button: $BLOCK_BUTTON" ;;
+	2) notify-send "clock, button: $BLOCK_BUTTON" ;;
+	#3) notify-send "clock, button: $BLOCK_BUTTON" ;;
+	3) "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac

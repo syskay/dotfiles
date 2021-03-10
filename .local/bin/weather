@@ -3,3 +3,9 @@
 weather="$(curl -sf wttr.in/?format="%c+%t(%f)+%h+%P+%m\n")"
 
 printf "%s \n" "$weather" 
+
+case $BLOCK_BUTTON in
+	#1) setsid "$TERMINAL" -e "curl -s wttr.in | " "$EDITOR" ;;
+	#1) notify-send "weather" "$(curl -s wttr.in)" ;;
+	3) "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac

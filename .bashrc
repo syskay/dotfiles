@@ -8,6 +8,10 @@
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
+# VARIABLES
+export TERMINAL="st"
+export EDITOR="nvim"
+
 # PATHs
 if [ -d "$HOME/.local/bin" ] ;
 	then PATH="$HOME/.local/bin:$PATH"
@@ -16,8 +20,8 @@ alias config='/usr/bin/git --git-dir=/home/syskay/dotfiles/ --work-tree=/home/sy
 
 setxkbmap pl
 
-source /home/syskay/.config/broot/launcher/bash/br
-pfetch
+#source /home/syskay/.config/broot/launcher/bash/br
+#pfetch
 
 #powerline-daemon -q
 #POWERLINE_BASH_CONTINUATION=1
