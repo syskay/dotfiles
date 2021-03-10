@@ -74,7 +74,7 @@
    (use-package dashboard
      :ensure t
      :config
-     (setq dashboard-items '((recents . 7)
+     (setq dashboard-items '((recents . 10)
                              (bookmarks . 7)
                              (registers . 7)))
      (setq dashboard-set-heading-icons t)
