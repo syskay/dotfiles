@@ -185,12 +185,12 @@
   :config
   (elfeed-org)
   (setq rmh-elfeed-org-files
-    (list "~/elfeed/elfeed.org")))
+    (list "~/shared/elfeed/elfeed.org")))
 
 (use-package elfeed
   :ensure t
   :config
-  (setq elfeed-db-directory "~/elfeed/elfeeddb"))
+  (setq elfeed-db-directory "~/shared/elfeed/elfeeddb"))
 
 (use-package dired
   :ensure nil)
