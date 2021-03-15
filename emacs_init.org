@@ -250,6 +250,16 @@
     :config
     (setq elfeed-db-directory "~/shared/elfeed/elfeeddb"))
   #+END_SRC
+** elfeed-dashboard
+   Based on elfeed-dashboard github description: [[https://github.com/Monoj321/elfeed-dashboard]]
+   #+BEGIN_SRC emacs-lisp
+   (use-package elfeed-dashboard
+     :ensure t
+     :config
+     (setq elfeed-dashboard-file "~/shared/elfeed/elfeed-dashboard.org")
+     ;; update feed counts on elfeed-quit
+     (advice-add 'efleed-search-quit-window :after #'elfeed-dashboard-update-links))
+   #+END_SRC
 * Dired
   #+BEGIN_SRC emacs-lisp
   (use-package dired

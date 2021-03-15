@@ -192,6 +192,13 @@
   :config
   (setq elfeed-db-directory "~/shared/elfeed/elfeeddb"))
 
+(use-package elfeed-dashboard
+  :ensure t
+  :config
+  (setq elfeed-dashboard-file "~/shared/elfeed/elfeed-dashboard.org")
+  ;; update feed counts on elfeed-quit
+  (advice-add 'efleed-search-quit-window :after #'elfeed-dashboard-update-links))
+
 (use-package dired
   :ensure nil)
 
