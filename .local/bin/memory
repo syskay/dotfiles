@@ -2,7 +2,7 @@
 
 memory=$(free -h | awk '/^Mem:/ {print $3 "/" $2}')
 
-echo -e "$memory RAM "
+echo -e "  $memory RAM "
 
 case $BLOCK_BUTTON in
 	1) "$TERMINAL" -e htop ;;
