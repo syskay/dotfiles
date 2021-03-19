@@ -21,6 +21,8 @@ Plug 'arcticicestudio/nord-vim'
 
 Plug 'dracula/vim',{'ac':'dracula'}
 
+Plug 'sheerun/vim-polyglot'
+
 call plug#end()
 
 colorscheme dracula
