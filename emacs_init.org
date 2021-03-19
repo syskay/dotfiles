@@ -305,6 +305,16 @@
      (org-ac/config-default))
 
    #+END_SRC
+* Development
+** Rust
+   #+BEGIN_SRC emacs-lisp
+   (use-package rust-mode
+     :ensure t
+     :config
+     (setq rust-format-on-save t)
+     (setq indent-tabs-mode nil)
+     )
+   #+END_SRC
 * Others
 
 #+BEGIN_SRC emacs-lisp

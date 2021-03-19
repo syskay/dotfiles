@@ -229,6 +229,13 @@
   :config
   (org-ac/config-default))
 
+(use-package rust-mode
+  :ensure t
+  :config
+  (setq rust-format-on-save t)
+  (setq indent-tabs-mode nil)
+  )
+
 (use-package command-log-mode)
 
 
