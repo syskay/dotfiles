@@ -1,11 +1,14 @@
-set number					" line numbers
-set relativenumber				" relative line numbers
-syntax on					" enables syntax highlights
+set number				 	        " line numbers
+set relativenumber				  " relative line numbers
 
-set ignorecase					" ingores case when searching
+syntax on					          " enables syntax highlights
+
+set ignorecase					    " ingores case when searching
 
 set complete+=kspell				" auto complete with spellcheck
-set completeopt=menuone				" auto complete with menu
+set completeopt=menuone		  " auto complete with menu
+
+set scrolloff=8							" Better scrolling
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'junegunn/vim-easy-align'
