@@ -25,6 +25,15 @@
 (setq use-package-always-ensure t)
 
 #+END_SRC
+** Clean .emacs.d etc
+   #+BEGIN_SRC emacs-lisp
+   (setq user-emacs-directory (expand-file-name "~/.cache/emacs/")
+         url-history-file (expand-file-name "url/history" user-emacs-directory))
+         
+   ;; Use no-littering to automatically set common path to the new user-emacs-directory
+   (use-package no-littering)
+
+   #+END_SRC
 
 * UI - User Interface tweaks
   #+BEGIN_SRC emacs-lisp
