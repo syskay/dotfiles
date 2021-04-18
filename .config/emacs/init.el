@@ -34,7 +34,7 @@
 ;; font face base on platform type
 (pcase system-type
   ((or 'gnu/linux 'cygwin)
-   (set-face-attribute 'default nil :font "Fira Mono" :height 60))
+   (set-face-attribute 'default nil :font "Fira Code Retina" :height 60))
   ('windows-nt 
    (set-face-attribute 'default nil :font "Fira Code Retina" :height 100)))
 
@@ -51,19 +51,20 @@
 
 (use-package page-break-lines
      :ensure t)
-    
+
 
 ;;   (use-package init-open-recentf
 ;;     :config
 ;;     (recentf-mode 1)
 ;;     (setq recentf-max-menu-items 25)
 ;;     (init-open-recentf))
- 
+
    (use-package dashboard
      :ensure t
      :config
      (setq dashboard-items '((recents . 10)
                              (bookmarks . 7)
+                             (agenda . 10)
                              (registers . 7)))
      (setq dashboard-set-heading-icons t)
      (setq dashboard-set-file-icons t)
