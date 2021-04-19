@@ -48,7 +48,7 @@
 (doom-themes-visual-bell-config))
 
 ;;(use-package nord-theme)
-(set-frame-parameter (selected-frame) 'alpha '(90 . 90))
+;;(set-frame-parameter (selected-frame) 'alpha '(90 . 90))
 
 (use-package page-break-lines
      :ensure t)
