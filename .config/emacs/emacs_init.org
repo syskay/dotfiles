@@ -37,34 +37,35 @@
 
 * UI - User Interface tweaks
   #+BEGIN_SRC emacs-lisp
-  (setq inhibit-startup-message t)
+    (setq inhibit-startup-message t)
 
-  (scroll-bar-mode -1)
-  (tool-bar-mode -1)
-  (tooltip-mode -1)
-  (set-fringe-mode 10)
+    (scroll-bar-mode -1)
+    (tool-bar-mode -1)
+    (tooltip-mode -1)
+    (set-fringe-mode 10)
 
-  (menu-bar-mode -1)
+    (menu-bar-mode -1)
 
-  (setq vivible-bell t)
+    (setq vivible-bell t)
 
-  ;; font face base on platform type
-  (pcase system-type
-    ((or 'gnu/linux 'cygwin)
-     (set-face-attribute 'default nil :font "Fira Code Retina" :height 60))
-    ('windows-nt 
-     (set-face-attribute 'default nil :font "Fira Code Retina" :height 100)))
-     
-  (use-package doom-themes
-	:config
-	(setq doom-themes-enable-bold t
-		  doom-themes-enable-italic t)
-	(load-theme 'doom-palenight t)
-	
-	(doom-themes-visual-bell-config))
+    ;; font face base on platform type
+    (pcase system-type
+      ((or 'gnu/linux 'cygwin)
+       (set-face-attribute 'default nil :font "Fira Code Retina" :height 60))
+      ('windows-nt 
+       (set-face-attribute 'default nil :font "Fira Code Retina" :height 100)))
 
-  ;;(use-package nord-theme)
-  (set-frame-parameter (selected-frame) 'alpha '(90 . 90))
+    (use-package doom-themes
+    :config
+    (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t)
+    ;;(load-theme 'doom-palenight t)
+    (load-theme 'doom-one t)
+
+    (doom-themes-visual-bell-config))
+
+    ;;(use-package nord-theme)
+    (set-frame-parameter (selected-frame) 'alpha '(90 . 90))
   #+END_SRC
 
 ** emacs-dashoard 
