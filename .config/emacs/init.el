@@ -122,6 +122,12 @@
   (setq org-hide-emphasis-markers t)
   )
 
+(setq org-agenda-include-diary t)
+(setq org-log-done 'time)
+
+(use-package org-super-agenda
+)
+
 ;; org-superstart
 (use-package org-superstar)
 (setq org-superstar-headline-bullets-list '("◉" "○" "✸" "✿" "○" "▷" "⁖"))
@@ -155,6 +161,23 @@
   :diminish which-key-mode
   :config
   (setq which-key-idle-delay 0.3))
+
+(use-package general
+  :config
+  (general-create-definer sy/leader-keys
+  :keymaps '(normal insert visual emacs)
+  :prefix "SPC"
+  :global-prefix "C-SPC")
+
+  (sy/leader-keys
+    "a" '(:ignore t :which-key "applications")
+    "ae" '(elfeed :which-key "elfeed")
+    "t" '(:ignore t :which-key "toggles")
+    "tt" '(counsel-load-theme :which-key "choose theme")
+    "o" '(:ignore t :which-key "org-mode")
+    "oa" '(org-agenda :whick-key "org-agenda")
+    "b" '(:ignore t :which-key "buffers")
+    "bb" '(counsel-switch-buffer :which-key "switch-buffer")))
 
 (use-package unicode-fonts
   :ensure t
@@ -246,12 +269,6 @@
 
 (use-package command-log-mode)
 
-
-;; org-mode related
-(use-package org)
-(setq org-agenda-include-diary t)
-(setq org-log-done 'time)
-
 (use-package all-the-icons)
 
 (use-package doom-modeline
@@ -260,16 +277,6 @@
 
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
-(use-package general
-  :config
-  (general-create-definer sy/leader-keys
-  :keymaps '(normal insert visual emacs)
-  :prefix "SPC"
-  :global-prefix "C-SPC")
-
-  (sy/leader-keys
-    "t" '(:ignore t :which-key "toggles")
-    "tt" '(counsel-load-theme :which-key "choose theme")))
 
 (use-package evil
   :init

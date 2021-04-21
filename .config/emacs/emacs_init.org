@@ -148,12 +148,23 @@
 * Org-mode 
 ** Basic
    #+BEGIN_SRC emacs-lisp
-   (use-package org
-     :config
-     (setq org-ellipsis " ▼")
-     (setq org-hide-emphasis-markers t)
-     )
+     (use-package org
+       :config
+       (setq org-ellipsis " ▼")
+       (setq org-hide-emphasis-markers t)
+       )
    #+END_SRC
+** org-agenda
+   #+BEGIN_SRC emacs-lisp
+   (setq org-agenda-include-diary t)
+   (setq org-log-done 'time)
+
+   #+END_SRC
+*** org-super-agenda
+    #+BEGIN_SRC emacs-lisp
+      (use-package org-super-agenda
+      )
+    #+END_SRC
 ** Better bullets 
    #+BEGIN_SRC emacs-lisp
 
@@ -194,15 +205,36 @@
    ;;                         :weight 'regular
    ;;                         :height (cdr face)))
    #+END_SRC
-* Which-key
+* Key bindings
+** Which-key
 
-  #+BEGIN_SRC emacs-lisp
-  (use-package which-key
-    :init (which-key-mode)
-    :diminish which-key-mode
-    :config
-    (setq which-key-idle-delay 0.3))
-  #+END_SRC
+   #+BEGIN_SRC emacs-lisp
+   (use-package which-key
+     :init (which-key-mode)
+     :diminish which-key-mode
+     :config
+     (setq which-key-idle-delay 0.3))
+   #+END_SRC
+** General.el
+   #+BEGIN_SRC emacs-lisp
+     (use-package general
+       :config
+       (general-create-definer sy/leader-keys
+       :keymaps '(normal insert visual emacs)
+       :prefix "SPC"
+       :global-prefix "C-SPC")
+
+       (sy/leader-keys
+         "a" '(:ignore t :which-key "applications")
+         "ae" '(elfeed :which-key "elfeed")
+         "t" '(:ignore t :which-key "toggles")
+         "tt" '(counsel-load-theme :which-key "choose theme")
+         "o" '(:ignore t :which-key "org-mode")
+         "oa" '(org-agenda :whick-key "org-agenda")
+         "b" '(:ignore t :which-key "buffers")
+         "bb" '(counsel-switch-buffer :which-key "switch-buffer")))
+   #+END_SRC
+
 * Unicode fonts
   #+BEGIN_SRC emacs-lisp
   (use-package unicode-fonts
@@ -332,12 +364,6 @@
 
 (use-package command-log-mode)
 
-
-;; org-mode related
-(use-package org)
-(setq org-agenda-include-diary t)
-(setq org-log-done 'time)
-
 (use-package all-the-icons)
 
 (use-package doom-modeline
@@ -346,16 +372,6 @@
 
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
-(use-package general
-  :config
-  (general-create-definer sy/leader-keys
-  :keymaps '(normal insert visual emacs)
-  :prefix "SPC"
-  :global-prefix "C-SPC")
-
-  (sy/leader-keys
-    "t" '(:ignore t :which-key "toggles")
-    "tt" '(counsel-load-theme :which-key "choose theme")))
 
 (use-package evil
   :init
