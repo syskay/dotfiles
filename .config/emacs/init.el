@@ -124,6 +124,7 @@
 
 (setq org-agenda-include-diary t)
 (setq org-log-done 'time)
+;;(setq calendar-mark-holidays-flag t)
 
 (use-package org-super-agenda
 )
@@ -136,7 +137,9 @@
 (org-babel-do-load-languages
 'org-babel-load-languages
 '((emacs-lisp . t)
-	(python . t)))
+  (python . t)
+  (plantuml . t)
+  (ditaa . t)))
 
 (use-package org-download
   :ensure t)
@@ -156,6 +159,8 @@
 ;;                         :weight 'regular
 ;;                         :height (cdr face)))
 
+;;(setq org-capture-templates)
+
 (use-package which-key
   :init (which-key-mode)
   :diminish which-key-mode
@@ -170,14 +175,18 @@
   :global-prefix "C-SPC")
 
   (sy/leader-keys
+    "SPC" '(counsel-M-x :whick-key "M-x")
     "a" '(:ignore t :which-key "applications")
     "ae" '(elfeed :which-key "elfeed")
+    "ar" '(ranger :Which-key "ranger")
     "t" '(:ignore t :which-key "toggles")
     "tt" '(counsel-load-theme :which-key "choose theme")
     "o" '(:ignore t :which-key "org-mode")
     "oa" '(org-agenda :whick-key "org-agenda")
+    "oc" '(org-capture :whick-key "capture")
     "b" '(:ignore t :which-key "buffers")
-    "bb" '(counsel-switch-buffer :which-key "switch-buffer")))
+    "bb" '(counsel-switch-buffer :which-key "switch-buffer")
+    "br" '(counsel-recentf :which-key "recent")))
 
 (use-package unicode-fonts
   :ensure t
@@ -237,6 +246,9 @@
 
 (use-package all-the-icons-dired
   :hook (dired-mode . all-the-icons-dired-mode))
+
+(use-package ranger
+  :ensure t)
 
 (setq-default tab-width 2)
 (setq-default evil-shift-with tab-width)
