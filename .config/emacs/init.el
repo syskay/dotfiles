@@ -167,6 +167,14 @@
 
 ;;(setq org-capture-templates)
 
+(use-package evil-org
+  :ensure t
+  :after org
+  :hook (org-mode . (lambda () evil-org-mode))
+  :config
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys))
+
 (use-package which-key
   :init (which-key-mode)
   :diminish which-key-mode
