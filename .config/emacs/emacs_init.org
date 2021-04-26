@@ -159,7 +159,12 @@
      (setq org-agenda-include-diary t)
      (setq org-log-done 'time)
      ;;(setq calendar-mark-holidays-flag t)
-
+     (setq org-agenda-files (apply 'append
+		   (mapcar
+			   (lambda (directory)
+				 (directory-files-recursively
+				   directory org-agenda-file-regexp))
+			       '("~/shared/"))))
    #+END_SRC
 *** org-super-agenda
     #+BEGIN_SRC emacs-lisp
@@ -285,48 +290,49 @@
    #+BEGIN_SRC emacs-lisp
    (use-package org-re-reveal)
    #+END_SRC
-* Elfeed
-  Configuration created based on: [[http://pragmaticemacs.com/emacs/read-your-rss-feeds-in-emacs-with-elfeed/]]
-  #+BEGIN_SRC emacs-lisp
-  (use-package elfeed-org
-    :ensure t
-    :config
-    (elfeed-org)
-    (setq rmh-elfeed-org-files
-      (list "~/shared/elfeed/elfeed.org")))
-  #+END_SRC
-
-  #+BEGIN_SRC emacs-lisp
-  (use-package elfeed
-    :ensure t
-    :config
-    (setq elfeed-db-directory "~/shared/elfeed/elfeeddb"))
-  #+END_SRC
-** elfeed-dashboard
-   Based on elfeed-dashboard github description: [[https://github.com/Monoj321/elfeed-dashboard]]
+* Applications
+** Elfeed
+   Configuration created based on: [[http://pragmaticemacs.com/emacs/read-your-rss-feeds-in-emacs-with-elfeed/]]
    #+BEGIN_SRC emacs-lisp
-   (use-package elfeed-dashboard
+   (use-package elfeed-org
      :ensure t
      :config
-     (setq elfeed-dashboard-file "~/shared/elfeed/elfeed-dashboard.org")
-     ;; update feed counts on elfeed-quit
-     (advice-add 'efleed-search-quit-window :after #'elfeed-dashboard-update-links))
+     (elfeed-org)
+     (setq rmh-elfeed-org-files
+       (list "~/shared/elfeed/elfeed.org")))
    #+END_SRC
-* Dired
-  #+BEGIN_SRC emacs-lisp
-  (use-package dired
-    :ensure nil)
-    
-  (use-package dired-single)
 
-  (use-package all-the-icons-dired
-    :hook (dired-mode . all-the-icons-dired-mode))
-  #+END_SRC
-* Ranger
-  #+BEGIN_SRC emacs-lisp
-    (use-package ranger
-      :ensure t)
-  #+END_SRC
+   #+BEGIN_SRC emacs-lisp
+   (use-package elfeed
+     :ensure t
+     :config
+     (setq elfeed-db-directory "~/shared/elfeed/elfeeddb"))
+   #+END_SRC
+*** elfeed-dashboard
+    Based on elfeed-dashboard github description: [[https://github.com/Monoj321/elfeed-dashboard]]
+    #+BEGIN_SRC emacs-lisp
+    (use-package elfeed-dashboard
+      :ensure t
+      :config
+      (setq elfeed-dashboard-file "~/shared/elfeed/elfeed-dashboard.org")
+      ;; update feed counts on elfeed-quit
+      (advice-add 'efleed-search-quit-window :after #'elfeed-dashboard-update-links))
+    #+END_SRC
+** Dired
+   #+BEGIN_SRC emacs-lisp
+   (use-package dired
+     :ensure nil)
+    
+   (use-package dired-single)
+
+   (use-package all-the-icons-dired
+     :hook (dired-mode . all-the-icons-dired-mode))
+   #+END_SRC
+** Ranger
+   #+BEGIN_SRC emacs-lisp
+     (use-package ranger
+       :ensure t)
+   #+END_SRC
 * Editing
 ** Tab width
    #+BEGIN_SRC emacs-lisp

@@ -125,6 +125,12 @@
 (setq org-agenda-include-diary t)
 (setq org-log-done 'time)
 ;;(setq calendar-mark-holidays-flag t)
+(setq org-agenda-files (apply 'append
+	(mapcar
+		(lambda (directory)
+		(directory-files-recursively
+			directory org-agenda-file-regexp))
+			  '("~/shared/"))))
 
 (use-package org-super-agenda
 )
