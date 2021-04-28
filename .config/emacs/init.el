@@ -91,13 +91,16 @@
        ("C-k" . ivy-previous-line)
        ("C-d" . ivy-reverse-i-search-kill))
   :config
-  (ivy-mode 1))
-  
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t))
+
   (use-package ivy-rich
     :init
     (ivy-rich-mode 1)
-    :after counsel)
-    
+    :after counsel
+    :config
+    (setq ivy-rich-path-style 'abbred))
+
   (use-package counsel
     :bind (("M-b" . counsel-switch-buffer)
            ("M-x" . counsel-M-x)
@@ -108,6 +111,12 @@
     (counsel-linux-app-format-function #'counsel-linux-app-format-function-name-only)
     :config
     (counsel-mode 1))
+
+    (use-package all-the-icons-ivy
+      :init
+      (add-hook 'after-init-hook 'all-the-icons-ivy-setup)
+      :config
+      (setq all-the-icons-ivy-buffer-commands '()))
 
 (use-package ivy-prescient
   :after counsel
@@ -170,7 +179,9 @@
 (use-package evil-org
   :ensure t
   :after org
-  :hook (org-mode . (lambda () evil-org-mode))
+  :hook ((org-mode . evil-org-mode)
+    (org-agenda-mode . evil-org-mode)
+    (evil-org-mode . (lambda () (evil-org-set-key-theme '(navigation todo insert textObjects additional)))))
   :config
   (require 'evil-org-agenda)
   (evil-org-agenda-set-keys))
