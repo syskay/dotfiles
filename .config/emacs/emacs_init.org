@@ -269,7 +269,16 @@
          "oc" '(org-capture :whick-key "capture")
          "b" '(:ignore t :which-key "buffers")
          "bb" '(counsel-switch-buffer :which-key "switch-buffer")
-         "br" '(counsel-recentf :which-key "recent")))
+         "br" '(counsel-recentf :which-key "recent")
+         "w" '(:ignore t :which-key "windows")
+         "w/" '(split-window-right :which-key "split-window-right")
+         "wh" '(evil-window-left :which-key "left")
+         "wj" '(evil-window-down :which-key "down")
+         "wk" '(evil-window-up :whick-key "up")
+         "wn" '(evil-window-next :which-key "next")
+         "wN" '(evin-window-new  :which-key "new")
+         "wl" '(evil-window-right :which-key "right")
+         "wd" '(evil-window-delete :which-key "delete")))
    #+END_SRC
 * Unicode fonts
   #+BEGIN_SRC emacs-lisp
