@@ -268,6 +268,8 @@
          "b" '(:ignore t :which-key "buffers")
          "bb" '(counsel-switch-buffer :which-key "switch-buffer")
          "br" '(counsel-recentf :which-key "recent")
+         "f" '(:ignore t: :which-key "files")
+         "ff" '(counsel-find-file :which-key "find")
          "w" '(:ignore t :which-key "windows")
          "w/" '(split-window-right :which-key "split-right")
          "wh" '(evil-window-left :which-key "left")
