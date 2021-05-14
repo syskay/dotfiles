@@ -186,6 +186,14 @@
   (require 'evil-org-agenda)
   (evil-org-agenda-set-keys))
 
+(use-package org-roam
+  :ensure t
+  :hook
+    (after-init . org-roam-mode)
+  :custom
+    (org-roam-directory "~/shared/roam")
+)
+
 (use-package which-key
   :init (which-key-mode)
   :diminish which-key-mode
