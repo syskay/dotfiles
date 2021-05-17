@@ -65,7 +65,7 @@
      :config
      (setq dashboard-items '((recents . 10)
                              (bookmarks . 7)
-                             (agenda . 10)
+                             (agenda . 15)
                              (registers . 7)))
      (setq dashboard-set-heading-icons t)
      (setq dashboard-set-file-icons t)
@@ -139,7 +139,7 @@
 		(lambda (directory)
 		(directory-files-recursively
 			directory org-agenda-file-regexp))
-			  '("~/shared/"))))
+			  '("~/shared/" "~/work"))))
 
 (use-package org-super-agenda
 )
@@ -222,6 +222,8 @@
     "br" '(counsel-recentf :which-key "recent")
     "f" '(:ignore t: :which-key "files")
     "ff" '(counsel-find-file :which-key "find")
+    "s" '(:ignore t: :which-key "search")
+    "ss" '(swiper :whick-key "swiper")
     "w" '(:ignore t :which-key "windows")
     "w/" '(split-window-right :which-key "split-right")
     "wh" '(evil-window-left :which-key "left")
