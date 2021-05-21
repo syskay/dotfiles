@@ -1,8 +1,8 @@
 (require 'package)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-			 ("org" . "https://orgmode.org/elpa/")
-			 ("elpa" . "https://elpa.gnu.org/packages/")))
+       ("org" . "https://orgmode.org/elpa/")
+       ("elpa" . "https://elpa.gnu.org/packages/")))
 
 (package-initialize)
 (unless package-archive-contents
@@ -13,12 +13,6 @@
 
 (require 'use-package)
 (setq use-package-always-ensure t)
-
-(setq user-emacs-directory (expand-file-name "~/.cache/emacs/")
-      url-history-file (expand-file-name "url/history" user-emacs-directory))
-
-;; Use no-littering to automatically set common path to the new user-emacs-directory
-(use-package no-littering)
 
 (setq inhibit-startup-message t)
 
@@ -49,6 +43,23 @@
 
 ;;(use-package nord-theme)
 ;;(set-frame-parameter (selected-frame) 'alpha '(90 . 90))
+
+(use-package beacon
+  :ensure t
+  :config
+  (beacon-mode 1)
+  (setq beacon-color "#00ff00"))
+
+(set-cursor-color "#00ff00")
+
+(use-package evil-goggles
+  :ensure t
+  :after
+  (evil)
+  (evil-collection)
+  :config
+  (evil-goggles-mode)
+  (evil-goggles-use-diff-faces))
 
 (use-package page-break-lines
      :ensure t)
@@ -396,3 +407,22 @@
 
 (use-package xresources-theme
   :ensure t)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(xresources-theme doom-modeline command-log-mode rfc-mode rust-mode org-ac auto-complete flycheck ranger all-the-icons-dired dired-single elfeed-dashboard elfeed-org org-re-reveal org-tree-slide emojify unicode-fonts general which-key org-roam evil-org evil-collection undo-tree org-download org-superstar org-super-agenda ivy-prescient all-the-icons-ivy counsel ivy-rich ivy dashboard page-break-lines evil-goggles beacon doom-themes use-package)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(evil-goggles-change-face ((t (:inherit diff-removed))))
+ '(evil-goggles-delete-face ((t (:inherit diff-removed))))
+ '(evil-goggles-paste-face ((t (:inherit diff-added))))
+ '(evil-goggles-undo-redo-add-face ((t (:inherit diff-added))))
+ '(evil-goggles-undo-redo-change-face ((t (:inherit diff-changed))))
+ '(evil-goggles-undo-redo-remove-face ((t (:inherit diff-removed))))
+ '(evil-goggles-yank-face ((t (:inherit diff-changed)))))
