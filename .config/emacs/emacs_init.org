@@ -277,7 +277,8 @@
           (evil-org-mode . (lambda () (evil-org-set-key-theme '(navigation todo insert textObjects additional)))))
         :config
         (require 'evil-org-agenda)
-        (evil-org-agenda-set-keys))
+        (evil-org-agenda-set-keys)
+        )
     #+END_SRC
 ** org-roam
    #+BEGIN_SRC emacs-lisp
@@ -473,6 +474,18 @@
          (setq rfc-mode-directory (expand-file-name "~/rfc/"))
      )
    #+END_SRC
+* Tweaks for Windows OS
+** Java -jar apps paths
+   #+BEGIN_SRC emacs-lisp
+  (pcase system-type
+  ('windows-nt 
+  (setq org-plantuml-jar-path
+      (expand-file-name "c:/programs/plantuml.jar"))
+  (setq org-ditaa-jar-path
+      (expand-file-name "c:/programs/ditaa0_9.jar"))
+  ))
+#+END_SRC
+
 * Others
 
 #+BEGIN_SRC emacs-lisp
@@ -487,8 +500,6 @@
 
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
-
-  
 ;;(use-package ox-reveal
 ;;	:ensure t)
 ;;(require 'ox-reveal)
@@ -516,3 +527,4 @@
 (use-package xresources-theme
   :ensure t)
 #+END_SRC
+

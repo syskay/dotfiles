@@ -224,7 +224,8 @@
     (evil-org-mode . (lambda () (evil-org-set-key-theme '(navigation todo insert textObjects additional)))))
   :config
   (require 'evil-org-agenda)
-  (evil-org-agenda-set-keys))
+  (evil-org-agenda-set-keys)
+  )
 
 (use-package org-roam
   :ensure t
@@ -371,6 +372,14 @@
     (setq rfc-mode-directory (expand-file-name "~/rfc/"))
 )
 
+(pcase system-type
+('windows-nt 
+(setq org-plantuml-jar-path
+    (expand-file-name "c:/programs/plantuml.jar"))
+(setq org-ditaa-jar-path
+    (expand-file-name "c:/programs/ditaa0_9.jar"))
+))
+
 (use-package command-log-mode)
 
 (use-package all-the-icons)
@@ -381,8 +390,6 @@
 
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
-
-  
 ;;(use-package ox-reveal
 ;;	:ensure t)
 ;;(require 'ox-reveal)
@@ -407,22 +414,3 @@
 
 (use-package xresources-theme
   :ensure t)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(xresources-theme doom-modeline command-log-mode rfc-mode rust-mode org-ac auto-complete flycheck ranger all-the-icons-dired dired-single elfeed-dashboard elfeed-org org-re-reveal org-tree-slide emojify unicode-fonts general which-key org-roam evil-org evil-collection undo-tree org-download org-superstar org-super-agenda ivy-prescient all-the-icons-ivy counsel ivy-rich ivy dashboard page-break-lines evil-goggles beacon doom-themes use-package)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(evil-goggles-change-face ((t (:inherit diff-removed))))
- '(evil-goggles-delete-face ((t (:inherit diff-removed))))
- '(evil-goggles-paste-face ((t (:inherit diff-added))))
- '(evil-goggles-undo-redo-add-face ((t (:inherit diff-added))))
- '(evil-goggles-undo-redo-change-face ((t (:inherit diff-changed))))
- '(evil-goggles-undo-redo-remove-face ((t (:inherit diff-removed))))
- '(evil-goggles-yank-face ((t (:inherit diff-changed)))))
