@@ -146,7 +146,6 @@
 (use-package helm-swoop
   :ensure t
   :config
-  (setq helm-swoop-speed-or-color t)
 )
 
 (use-package org
@@ -178,7 +177,8 @@
 '((emacs-lisp . t)
   (python . t)
   (plantuml . t)
-  (ditaa . t)))
+  (ditaa . t)
+  (latex . t)))
 
 (use-package org-download
   :ensure t)

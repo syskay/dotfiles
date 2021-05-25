@@ -183,7 +183,6 @@
       (use-package helm-swoop
         :ensure t
         :config
-        (setq helm-swoop-speed-or-color t)
       )
     #+END_SRC
 * Org-mode 
@@ -228,7 +227,8 @@
      '((emacs-lisp . t)
        (python . t)
        (plantuml . t)
-       (ditaa . t)))
+       (ditaa . t)
+       (latex . t)))
 
    #+END_SRC
 ** org-download
