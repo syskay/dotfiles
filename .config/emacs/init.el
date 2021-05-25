@@ -140,7 +140,6 @@
       )
    :config
    (helm-mode 1)
-   (setq helm-swoop-speed-or-color t)
 )
 
 (use-package helm-swoop
