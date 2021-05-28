@@ -86,66 +86,67 @@
      :init
      (dashboard-setup-startup-hook))
 
-;;    (use-package ivy 
-;;      :diminish
-;;      :bind (("C-s" . swiper)
-;;           :map ivy-minibuffer-map
-;;           ("TAB" . ivy-alt-done)
-;;           ("C-l" . ivy-alt-done)
-;;           ("C-j" . ivy-next-line)
-;;           ("C-k" . ivy-previous-line)
-;;           :map ivy-switch-buffer-map
-;;           ("C-k" . ivy-previous-line)
-;;           ("C-l" . ivy-done)
-;;           ("C-d" . ivy-switch-buffer-kill)
-;;           :map ivy-reverse-i-search-map
-;;           ("C-k" . ivy-previous-line)
-;;           ("C-d" . ivy-reverse-i-search-kill))
-;;      :config
-;;      (ivy-mode 1)
-;;      (setq ivy-use-virtual-buffers t))
-;;
-;;      (use-package ivy-rich
-;;        :init
-;;        (ivy-rich-mode 1)
-;;        :after counsel
-;;        :config
-;;        (setq ivy-rich-path-style 'abbred))
-;;
-;;      (use-package counsel
-;;        :bind (("M-b" . counsel-switch-buffer)
-;;               ("M-x" . counsel-M-x)
-;;               ("C-x C-f" . counsel-find-file)
-;;               :map minibuffer-local-map
-;;               ("C-r" . 'counsel-minibuffer-history))
-;;        :custom
-;;        (counsel-linux-app-format-function #'counsel-linux-app-format-function-name-only)
-;;        :config
-;;        (counsel-mode 1))
-;;
-;;        (use-package all-the-icons-ivy
-;;          :init
-;;          (add-hook 'after-init-hook 'all-the-icons-ivy-setup)
-;;          :config
-;;          (setq all-the-icons-ivy-buffer-commands '()))
-
-(use-package helm
-   :ensure t
-   :bind
-    (("M-x" . helm-M-x)
-     ("C-x C-f" . helm-find-files)
-      :map helm-map
-      ("C-j" . helm-next-line)
-      ("C-k" . helm-previous-line)
-      )
-   :config
-   (helm-mode 1)
-)
-
-(use-package helm-swoop
-  :ensure t
+(use-package ivy 
+  :diminish
+  :bind (("C-s" . swiper)
+       :map ivy-minibuffer-map
+       ("TAB" . ivy-alt-done)
+       ("C-l" . ivy-alt-done)
+       ("C-j" . ivy-next-line)
+       ("C-k" . ivy-previous-line)
+       :map ivy-switch-buffer-map
+       ("C-k" . ivy-previous-line)
+       ("C-l" . ivy-done)
+       ("C-d" . ivy-switch-buffer-kill)
+       :map ivy-reverse-i-search-map
+       ("C-k" . ivy-previous-line)
+       ("C-d" . ivy-reverse-i-search-kill))
   :config
-)
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t))
+
+  (use-package ivy-rich
+    :init
+    (ivy-rich-mode 1)
+    :after counsel
+    :config
+    (setq ivy-rich-path-style 'abbred)
+    (setq ivy-rich-project-root-cache-mode 1))
+
+  (use-package counsel
+    :bind (("M-b" . counsel-switch-buffer)
+           ("M-x" . counsel-M-x)
+           ("C-x C-f" . counsel-find-file)
+           :map minibuffer-local-map
+           ("C-r" . 'counsel-minibuffer-history))
+    :custom
+    (counsel-linux-app-format-function #'counsel-linux-app-format-function-name-only)
+    :config
+    (counsel-mode 1))
+
+    (use-package all-the-icons-ivy
+      :init
+      (add-hook 'after-init-hook 'all-the-icons-ivy-setup)
+      :config
+      (setq all-the-icons-ivy-buffer-commands '()))
+
+;;   (use-package helm
+;;     :ensure t
+;;     :bind
+;;      (("M-x" . helm-M-x)
+;;       ("C-x C-f" . helm-find-files)
+;;        :map helm-map
+;;        ("C-j" . helm-next-line)
+;;        ("C-k" . helm-previous-line)
+;;        )
+;;     :config
+;;     (helm-mode 1)
+;;  )
+
+;;  (use-package helm-swoop
+;;    :ensure t
+;;    :config
+;;  )
 
 (use-package org
   :config
@@ -155,13 +156,13 @@
 
 (setq org-agenda-include-diary t)
 (setq org-log-done 'time)
-;;(setq calendar-mark-holidays-flag t)
+(setq calendar-mark-holidays-flag t)
 (setq org-agenda-files (apply 'append
-	(mapcar
-		(lambda (directory)
-		(directory-files-recursively
-			directory org-agenda-file-regexp))
-			  '("~/shared/" "~/work"))))
+ (mapcar
+   (lambda (directory)
+   (directory-files-recursively
+     directory org-agenda-file-regexp))
+     	 '("~/shared/" "~/work"))))
 
 (use-package org-super-agenda
 )
@@ -177,7 +178,10 @@
   (python . t)
   (plantuml . t)
   (ditaa . t)
-  (latex . t)))
+  (latex . t)
+  (asymptote . t)
+  ))
+(setq org-confirm-babel-evaluate nil)
 
 (use-package org-download
   :ensure t)
@@ -261,27 +265,28 @@
   :global-prefix "C-SPC")
 
   (sy/leader-keys
-    ;;"SPC" '(counsel-M-x :whick-key "M-x")
-    "SPC" '(helm-M-x :whick-key "M-x")
+    "SPC" '(counsel-M-x :whick-key "M-x")
+    ;;"SPC" '(helm-M-x :whick-key "M-x")
     "a" '(:ignore t :which-key "applications")
     "ae" '(elfeed :which-key "elfeed")
     "ar" '(ranger :Which-key "ranger")
     "t" '(:ignore t :which-key "toggles")
     "tt" '(counsel-load-theme :which-key "choose theme")
+    ;;"tt" '(load-theme :whick-key "choose theme")
     "o" '(:ignore t :which-key "org-mode")
     "oa" '(org-agenda :whick-key "org-agenda")
     "oc" '(org-capture :whick-key "capture")
-    "b" '(:ignore t :which-key "buffers")
-    ;;"bb" '(counsel-switch-buffer :which-key "switch-buffer")
-    "bb" '(helm-buffers-list :which-key "switch-buffer")
-    ;;"br" '(counsel-recentf :which-key "recent")
-    "br" '(helm-recentf :which-key "recent")
+    ;;"b" '(:ignore t :which-key "buffers")
+    "bb" '(counsel-switch-buffer :which-key "switch-buffer")
+    ;;"bb" '(helm-buffers-list :which-key "switch-buffer")
+    "br" '(counsel-recentf :which-key "recent")
+    ;;"br" '(helm-recentf :which-key "recent")
     "f" '(:ignore t: :which-key "files")
-    ;;"ff" '(counsel-find-file :which-key "find")
-    "ff" '(helm-find-file :which-key "find")
+    "ff" '(counsel-find-file :which-key "find")
+    ;;"ff" '(helm-find-files :which-key "find")
     "s" '(:ignore t: :which-key "search")
-    ;;"ss" '(swiper :whick-key "swiper")
-    "ss" '(helm-swoop :whick-key "swoop")
+    "ss" '(swiper :whick-key "swiper")
+    ;;"ss" '(helm-swoop :whick-key "swoop")
     "w" '(:ignore t :which-key "windows")
     "w/" '(split-window-right :which-key "split-right")
     "wh" '(evil-window-left :which-key "left")
