@@ -148,6 +148,10 @@
 ;;    :config
 ;;  )
 
+(use-package helm-org-rifle
+  :ensure t
+)
+
 (use-package org
   :config
   (setq org-ellipsis " ▼")
@@ -203,10 +207,17 @@
 
 ;;(setq org-capture-templates)
 
-(use-package undo-tree
-  :init
-  (global-undo-tree-mode 1)
-)
+;; (use-package undo-tree
+ ;;  :init
+ ;;  (global-undo-tree-mode 1)
+;; )
+
+(use-package undo-fu
+  :config
+  ;;(global-undo-tree-mode -1)
+  ;;(define-key evil-normal-state-map "u" 'undo-fu-only-undo)
+  ;;(define-key evil-normal-state-map "\C-r" 'undo-fu-only-redo)
+ )
 
 (use-package evil
 :init
@@ -214,7 +225,9 @@
 (setq evil-want-keybinding nil)
 (setq evil-want-C-u-scroll t)
 (setq evil-want-C-i-jump nil)
-(setq evil-undo-system 'undo-tree)
+(setq evil-undo-system 'undo-fu)
+;; More fine undo configuration for evil undo system
+(setq evil-want-fine-undo t)
 :config
 (evil-mode 1)
 (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
