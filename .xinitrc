@@ -1,6 +1,6 @@
 #!/bin/sh
 xrandr -s 1680x1050
-nitrogen --set-scaled ~/wallpapers/wallhaven-76q6ve_1680x1050.png
+nitrogen --set-scaled ~/wallpapers/famtasy-5701x3899.jpg
 [[ -f ~/.Xresources ]]  && xrdb -merge -I$HOME ~/.Xresources
 picom &
 dunst &
