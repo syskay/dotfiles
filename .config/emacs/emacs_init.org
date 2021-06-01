@@ -50,12 +50,12 @@
     (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
     ;;(load-theme 'doom-palenight t)
-    (load-theme 'doom-one t)
+    (load-theme 'doom-badger t)
 
     (doom-themes-visual-bell-config))
 
     ;;(use-package nord-theme)
-    ;;(set-frame-parameter (selected-frame) 'alpha '(90 . 90))
+    (set-frame-parameter (selected-frame) 'alpha '(90 . 90))
 
     (use-package beacon
       :ensure t
