@@ -130,6 +130,13 @@
       :config
       (setq all-the-icons-ivy-buffer-commands '()))
 
+(use-package ivy-prescient
+  :after counsel
+  :custom
+  (ivy-prescient-enable-filtering nil)
+  :config
+  (ivy-prescient-mode 1))
+
 ;;   (use-package helm
 ;;     :ensure t
 ;;     :bind
@@ -449,3 +456,23 @@
 
 (use-package xresources-theme
   :ensure t)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(helm-minibuffer-history-key "M-p")
+ '(package-selected-packages
+   '(ivy-prescient xresources-theme which-key use-package unicode-fonts undo-tree undo-fu rust-mode rfc-mode ranger org-tree-slide org-superstar org-super-agenda org-roam org-re-reveal org-download org-ac ivy-rich helm-org-rifle general flycheck evil-org evil-goggles evil-collection emojify elfeed-org elfeed-dashboard doom-themes doom-modeline dired-single dashboard counsel command-log-mode beacon all-the-icons-ivy all-the-icons-dired)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(evil-goggles-change-face ((t (:inherit diff-removed))))
+ '(evil-goggles-delete-face ((t (:inherit diff-removed))))
+ '(evil-goggles-paste-face ((t (:inherit diff-added))))
+ '(evil-goggles-undo-redo-add-face ((t (:inherit diff-added))))
+ '(evil-goggles-undo-redo-change-face ((t (:inherit diff-changed))))
+ '(evil-goggles-undo-redo-remove-face ((t (:inherit diff-removed))))
+ '(evil-goggles-yank-face ((t (:inherit diff-changed)))))

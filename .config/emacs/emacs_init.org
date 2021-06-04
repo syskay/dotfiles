@@ -154,14 +154,14 @@
    #+END_SRC
 
 *** Better sorting with prescient.el
- ;;   #+BEGIN_SRC emacs-lisp
- ;;   (use-package ivy-prescient
- ;;     :after counsel
- ;;     :custom
- ;;     (ivy-prescient-enable-filtering nil)
- ;;     :config
- ;;     (ivy-prescient-mode 1))
- ;;   #+END_SRC
+    #+BEGIN_SRC emacs-lisp
+    (use-package ivy-prescient
+      :after counsel
+      :custom
+      (ivy-prescient-enable-filtering nil)
+      :config
+      (ivy-prescient-mode 1))
+    #+END_SRC
 ** Helm 
 *** Basic
     #+BEGIN_SRC emacs-lisp
