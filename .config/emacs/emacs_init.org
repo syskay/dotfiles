@@ -444,10 +444,11 @@
    #+END_SRC
 
    #+BEGIN_SRC emacs-lisp
-   (use-package elfeed
-     :ensure t
-     :config
-     (setq elfeed-db-directory "~/shared/elfeed/elfeeddb"))
+     (use-package elfeed
+       :ensure t
+       :config
+       (setq elfeed-db-directory "~/shared/elfeed/elfeeddb")
+       (setq-default elfeed-search-filter "@6-months-ago "))
    #+END_SRC
 *** elfeed-dashboard
     Based on elfeed-dashboard github description: [[https://github.com/Monoj321/elfeed-dashboard]]
